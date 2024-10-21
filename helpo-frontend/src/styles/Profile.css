@@ -1,0 +1,141 @@
+.profilePageMainDiv {
+    background: #B5B5B5;
+
+}
+
+.profileDiv {
+    padding-left: 2.6em;
+    padding-right: 2.6em;
+    padding-bottom: 2.6em;
+    padding-top: 5em;
+}
+
+.profileTop {
+    height: 332px;
+}
+
+.profileTop img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.profileBottom {
+    height: 1211px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profilePane {
+    width: 33%;
+    height: 104%;
+    background-color: #fff;
+    margin-top: -4%;
+    border-radius: 10px;
+}
+
+.proPicInfoCont {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.proPic {
+    width: 310px;
+    aspect-ratio: 1 / 1;
+    position: relative;
+}
+
+.proPic img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profType {
+    position: absolute;
+    bottom: 1.5em;
+    right: 1em;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+}
+
+.profSkills{
+    text-align: left;
+}
+
+.profSkillSpan{
+    border-radius: 16px;
+}
+
+.profSocialIconCont{
+    
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.profSocialBox {
+    border: 1px solid #000;
+    border-radius: 50%;
+    width: 2.2em;
+    height: 2.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    color: #000;
+    cursor: pointer;
+}
+
+.profSocialBox:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.profileGallery {
+    width: 65%;
+    height: 100%;
+    /* background-color: blue; */
+}
+
+.profileTabBtnCont {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.profileTabBtn {
+    background-color: #fff !important;
+    color: #000 !important;
+    border-top-left-radius: 64px !important;
+    border-top-right-radius: 64px !important;
+    border-bottom-right-radius: 64px;
+    border-bottom-left-radius: 64px;
+    padding: 10px 22px;
+    border: 0px !important;
+}
+
+.profileTabBtn.active {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.profileTabBtn:hover {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.portfolioFrame {
+    background-color: #fff;
+    height: 245px;
+    width: 32%;
+    border-radius: 8px;
+    cursor: pointer;
+}
