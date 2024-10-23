@@ -34,8 +34,8 @@ router.post('/signup', async (req, res) => {
 
     res.status(201).json({ result: newUser, token });
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: 'Something went wrong' });
+    res.status(500).json({ message: 'Something went wrong', error: error.message }); // Include the error message in the response
+
   }
 });
 
