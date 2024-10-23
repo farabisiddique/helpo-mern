@@ -30,10 +30,11 @@ router.post('/signup', async (req, res) => {
     await newUser.save();
 
     // Create JWT token
-    const token = jwt.sign({ email: newUser.email, id: newUser._id }, 'your_jwt_secret', { expiresIn: '1h' });
+    const token = jwt.sign({ email: newUser.email, id: newUser._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
     res.status(201).json({ result: newUser, token });
   } catch (error) {
+    console.error("Signup Error:", error); // Log the error details
     res.status(500).json({ message: 'Something went wrong', error: error.message }); // Include the error message in the response
 
   }

@@ -30,8 +30,9 @@ app.listen(PORT, () => {
 
 
 // Add this to server.js
+
 app.get('/', async (req, res) => {
-    
+    res.send('Welcome to the API!'); // Send a simple response for the root route
 });
 
 app.use('/api/auth', authRoutes);
