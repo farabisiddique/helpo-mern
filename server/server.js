@@ -32,7 +32,10 @@ app.listen(PORT, () => {
 // Add this to server.js
 
 app.get('/', async (req, res) => {
-    res.send('Welcome to the API!'); // Send a simple response for the root route
+    // res.send('Welcome to the API!'); 
+    mongoose.connect(mongoDBString, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Connected to MongoDB'))
+    .catch((error) => console.log('MongoDB connection error:', error));
 });
 
 app.use('/api/auth', authRoutes);
