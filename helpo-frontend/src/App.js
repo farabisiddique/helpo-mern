@@ -8,7 +8,7 @@ import Navbar from './components/NavBar';
 
 const App = () => {
   // const [todos, setTodos] = useState([]);
-  const appEntryURL = process.env.REACT_APP_API_BASE_URL;;
+  const appEntryURL = process.env.REACT_APP_API_URL;;
 
   useEffect(() => {
     // Fetch data from the Express server

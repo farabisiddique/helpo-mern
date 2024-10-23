@@ -22,8 +22,8 @@ const SignUpModal = ({ showModal, handleClose }) => {
         e.preventDefault();
         try {
           // Send POST request to the backend
-          const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/auth/signup`, formData);
-          console.log(process.env.REACT_APP_API_BASE_URL);
+          const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/signup`, formData);
+          console.log(process.env.REACT_APP_API_URL);
 
           toastr.options = {
             "closeButton": true,

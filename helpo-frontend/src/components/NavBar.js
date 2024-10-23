@@ -28,7 +28,7 @@ const Navbar = () => {
             },
           };
       
-          const { data } = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/auth/profile`, config);
+          const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/profile`, config);
 
           setProfileData(data.result);  // Set profile data
           navigate('/profile', { state: { profileData: data.result } });  // Pass data using state
