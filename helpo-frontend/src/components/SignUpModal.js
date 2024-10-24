@@ -21,8 +21,7 @@ const SignUpModal = ({ showModal, handleClose }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          // Send POST request to the backend
-          console.log("hey");
+          
           const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/signup`, formData);
           
           toastr.options = {
