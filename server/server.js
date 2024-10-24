@@ -32,10 +32,10 @@ app.listen(PORT, () => {
 // Add this to server.js
 
 app.get('/', async (req, res) => {
-    // res.send(mongoDBString); 
-    mongoose.connect(mongoDBString, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => res.send('Connected to MongoDB'))
-    .catch((error) => res.send('MongoDB connection error:', error));
+    res.send(mongoDBString); 
+    // mongoose.connect(mongoDBString, { useNewUrlParser: true, useUnifiedTopology: true })
+    // .then(() => res.send('Connected to MongoDB'))
+    // .catch((error) => res.send('MongoDB connection error:', error));
 });
 
 app.use('/api/auth', authRoutes);
