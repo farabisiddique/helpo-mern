@@ -4,14 +4,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/auth');
 const dotenv = require('dotenv');
-
 const https = require('https');
 const fs = require('fs');
-
-const options = {
-    key: fs.readFileSync('/etc/letsencrypt/live/helpo.site/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/helpo.site/fullchain.pem'),
-};
 
 // Load environment variables from .env file
 dotenv.config();
@@ -22,11 +16,6 @@ const mongoDBString = process.env.MONGO_URI;
 
 app.use(cors());
 app.use(express.json());
-// app.use(bodyParser.json());
-
-const server = https.createServer(options, app);
-
-
 
 // Connect to MongoDB
 mongoose.connect(mongoDBString, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -34,7 +23,20 @@ mongoose.connect(mongoDBString, { useNewUrlParser: true, useUnifiedTopology: tru
     .catch((error) => console.log('MongoDB connection error:', error));
 
 
-// Define routes and middleware
+// Conditional SSL Setup
+let server;
+if (process.env.NODE_ENV === 'production') {
+    const options = {
+        key: fs.readFileSync('/etc/letsencrypt/live/helpo.site/privkey.pem'),
+        cert: fs.readFileSync('/etc/letsencrypt/live/helpo.site/fullchain.pem'),
+    };
+    server = https.createServer(options, app);
+    console.log('Running with HTTPS in production');
+} else {
+    server = app; // Use HTTP for local development
+    console.log('Running with HTTP in development');
+}
+
 server.listen(PORT, (error) => {
     if (error) {
         console.error('Error starting server:', error);
@@ -45,7 +47,7 @@ server.listen(PORT, (error) => {
 
 
 
-// Add this to server.js
+// Define routes and middleware
 
 app.get('/', async (req, res) => {
     res.send('Welcome to the Helpo API!');
